@@ -1,4 +1,6 @@
-# Advanced Deep Learning Facial Recognition & Verification System
+# Identra
+## Advanced Deep Learning Facial Recognition & Verification System
+
 **Experiential Learning Project | Artificial Neural Networks and Deep Learning**  
 **Student:** Swara  
 **Version:** 1.0  
@@ -6,9 +8,11 @@
 ---
 
 ## 📌 Project Overview
+
 This project implements an end-to-end **Biometric Face Recognition and Verification System** powered by deep Convolutional Neural Networks (CNNs), transfer learning, face alignment, and metric distance learning.
 
 The system supports:
+
 1. **User Enrollment**: Captures face crops, assesses anti-spoofing liveness, and extracts 512-dimensional feature embedding vectors.
 2. **1:1 Biometric Verification**: Confirms whether a test face belongs to a specific claimed identity.
 3. **1:N Biometric Identification**: Matches an unknown face against the entire enrolled database.
@@ -19,7 +23,7 @@ The system supports:
 
 ## 🏗️ Architecture & Modules
 
-```
+```text
 deep-learning el/
 ├── config.py                 # Central configurations (thresholds, image dimensions, paths)
 ├── app.py                    # Interactive Streamlit Web Application (Webcam + Photo Upload)
@@ -44,19 +48,33 @@ deep-learning el/
 
 ## 🚀 Quick Start Guide
 
-### 1. Launch the Interactive Web Application
+### 1. Install Dependencies
+
+Install all required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Launch the Interactive Web Application
+
 Run the Streamlit application to access the graphical interface:
+
 ```bash
 streamlit run app.py
 ```
+
 This opens a local browser interface (`http://localhost:8501`) featuring:
+
 * **Tab 1 - Verification & Identification**: Live webcam or photo matching with visual bounding boxes, real-time similarity gauge, and Accepted/Rejected status banners.
 * **Tab 2 - User Enrollment**: Register new identities with live webcam capture or photo upload.
 * **Tab 3 - Database Gallery**: Inspect enrolled identities and manage stored templates.
 * **Tab 4 - Performance Analytics**: View benchmark metrics, ROC curves, and score distributions.
 
-### 2. Run Automated Benchmarking
+### 3. Run Automated Benchmarking
+
 To re-run the benchmark across all CNN backbones and regenerate the ROC/EER plots:
+
 ```bash
 python evaluate.py
 ```
@@ -73,7 +91,8 @@ Evaluated on 144 multi-condition genuine and impostor face pairs across lighting
 | **ResNet18** | Pretrained ImageNet | 77.78% | 21.67% | 0.876 | 0.89 |
 | **Custom Face CNN** | Built from scratch (5 Conv layers) | 70.83% | 32.50% | 0.851 | 0.99 |
 
-### Metric Definitions:
+### Metric Definitions
+
 * **FAR (False Acceptance Rate)**: Probability that an impostor face is erroneously accepted.
 * **FRR (False Rejection Rate)**: Probability that an enrolled genuine face is erroneously rejected.
 * **EER (Equal Error Rate)**: Operating threshold where $\text{FAR} = \text{FRR}$. Lower indicates higher discriminative capability.
@@ -93,3 +112,37 @@ Evaluated on 144 multi-condition genuine and impostor face pairs across lighting
 | **FR10 & Sec 11** | Accuracy, FAR, FRR, EER evaluation | `BiometricEvaluator` in `src/evaluation.py` producing 4-panel visual report. |
 | **Sec 13 Risks** | Anti-spoofing protection | `LivenessDetector` in `src/liveness_detector.py` analyzing Laplacian variance and FFT high-frequency content. |
 
+---
+
+## 🔒 Privacy & Data Protection
+
+Personal biometric images, enrolled face databases, and generated evaluation data are excluded from version control using `.gitignore`.
+
+---
+
+## 🛠️ Technologies Used
+
+* Python
+* PyTorch
+* Torchvision
+* OpenCV
+* NumPy
+* Scikit-learn
+* Scikit-image
+* Matplotlib
+* Pandas
+* Pillow
+* Streamlit
+
+---
+
+## 👩‍💻 Author
+
+**Swara**
+
+Experiential Learning Project  
+Artificial Neural Networks and Deep Learning
+
+---
+
+**Repository:** https://github.com/SwaraH26/Identra
