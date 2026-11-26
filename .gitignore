@@ -1,0 +1,26 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Biometric database and personal images
+database/
+sample_data/
+*.jpg
+*.jpeg
+*.png
+
+# Generated evaluation results
+evaluation_results/
+
+# Secrets
+.env
+.streamlit/secrets.toml
+
+# IDE files
+.vscode/
+.idea/
